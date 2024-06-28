@@ -2,13 +2,13 @@ body {
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
-    background-color: #f5f0ec; /*colorclaro */
+    background-color: #f5f0ec; /*color */
     color: rgb(80, 58, 19);
     text-align: center;
 }
 
 header {
-    background-color: #f1d2b8; /* color rosa */
+    background-color: #f1d2b8; /* color  */
     padding: 1%;
     text-align: left;
 }
