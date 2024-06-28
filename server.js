@@ -64,7 +64,7 @@ app.post('/enviar-datos', (req, res) => {
     });
 });
 
-// Iniciar el servidor
+// Iniciar el servidor--
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
