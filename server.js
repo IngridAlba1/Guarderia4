@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const mongoose = require('mongoose'); // Importa Mongoose
+const mongoose = require('mongoose'); // BD Mongoose
 const app = express();
 const port = 3002; // Puerto en el que escuchará el servidor
 
