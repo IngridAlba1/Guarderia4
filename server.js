@@ -9,7 +9,7 @@ const port = 3002; // Puerto en el que escuchará el servidor
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Conexión a MongoDB usando Mongoose
+// Conexión a MongoDB usando Mongoose 
 mongoose.connect('mongodb://localhost:27017/guarderiaDB')
   .then(() => {
     console.log('Conectado a la base de datos MongoDB');
