@@ -5,7 +5,7 @@ const mongoose = require('mongoose'); // BD Mongoose
 const app = express();
 const port = 3002; // Puerto en el que escuchará el servidor
 
-// Configuración para analizar datos JSON y urlencoded
+// Configuración para analizar datos JSON 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
