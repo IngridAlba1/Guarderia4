@@ -114,7 +114,7 @@
 
         <p>En Guardería Oreo y Zoe, estamos aquí para brindarte el mejor servicio para tu mascota. Nos encantaría saber más sobre ti y tu compañero peludo. Por favor, déjanos tus datos y pronto nos pondremos en contacto contigo para ofrecerte información detallada sobre nuestros servicios y cómo podemos ayudarte.</p>
 
-        <form action="/enviar-datos" method="POST">
+        <form action="/api/datos" method="POST">
             <label for="nombres-apellidos">Nombres y Apellidos:</label>
             <input type="text" id="nombres-apellidos" name="nombresApellidos" required><br><br>
             <label for="telefono">Teléfono:</label>
@@ -148,7 +148,7 @@
     <script src="script.js"></script> 
     <script>
         // JavaScript para manejar el envío del formulario//
-        const form = document.getElementById('contactForm');
+        const form = document.querySelector('form');
         
         form.addEventListener('submit', function(event) {
             event.preventDefault(); // Evitar el envío del formulario
@@ -172,6 +172,8 @@
             console.log('Nombre de Tu peludito:', nombrePeludito);
             console.log('Fecha de Inicio de Servicio:', fechaInicio);
             console.log('Fecha de Fin de Servicio:', fechaFin);
+
+            // Opcional: Puedes enviar estos datos a tu servidor mediante fetch o Axios aquí
         });
     </script>
 </body>

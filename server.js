@@ -11,7 +11,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Conexión a MongoDB usando Mongoose
-mongoose.connect('mongodb://localhost:27017/guarderiaDB')
+mongoose.connect('mongodb://localhost:27017/guarderiaDB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(() => {
     console.log('Conectado a la base de datos MongoDB');
   })
@@ -138,6 +141,11 @@ app.delete('/api/datos/:id', (req, res) => {
       console.error('Error al eliminar el dato:', err);
       res.status(500).send('Error interno al eliminar el dato');
     });
+});
+
+// Manejo de la ruta raíz del servidor
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Manejo de errores para rutas no encontradas
