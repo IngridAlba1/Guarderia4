@@ -18,7 +18,7 @@
         <img src="images/logo.jpeg" alt="logo de la guarderia" class="logo">
     </header>
 
-    <!-- Barra de Navegación ajustar-->
+    <!-- Barra de Navegación -->
     <nav>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -30,7 +30,7 @@
 
     <!-- Módulo de Inicio -->
     <section id="inicio">
-        <h1>Bienvenidos a la Guardería de Oreo y Zoe</h1>
+        <h1>Bienvenidos a Guardería Oreo y Zoe</h1>
         <p>¡Donde tus mascotas son nuestra prioridad!</p>
 
         <p>En nombre de Oreo y Zoe, entendemos que tus mascotas son más que solo animales; son miembros queridos de tu familia. Nuestro compromiso es proporcionarles un ambiente seguro, divertido y amoroso mientras estás fuera.</p>
@@ -48,7 +48,7 @@
 
     <!-- Módulo de Servicios -->
     <section id="servicios">
-        <h1>Servicios que ofrecemos</h1>
+        <h2>Nuestros Servicios</h2>
         <ul>
             <li>
                 <h4>Cuidado de Tu Mascota</h4>
@@ -89,7 +89,7 @@
 
     <!-- Módulo Acerca de Nosotros -->
     <section id="acerca-de">
-        <h1>Acerca de Nosotros</h1>
+        <h2>Acerca de Nosotros</h2>
         <p>Bienvenidos a Guardería Oreo y Zoe!</p>
 
         <p>En Guardería Oreo y Zoe, nos dedicamos a ofrecer servicios de alta calidad para el cuidado y bienestar de tus mascotas. Desde el año 2021, hemos sido líderes en la Ciudad de Bogotá en proporcionar soluciones confiables y personalizadas para las necesidades individuales de cada mascota.</p>
@@ -112,9 +112,7 @@
         <h1>Déjanos tus Datos</h1>
         <p>Déjanos conocerte mejor!</p>
 
-        <p>En Guardería Oreo y Zoe, estamos aquí para brindarte el mejor servicio para tu mascota. Nos encantaría saber más sobre ti y tu compañero peludo. Por favor, déjanos tus datos y pronto nos pondremos en contacto contigo para ofrecerte información detallada sobre nuestros servicios y cómo podemos ayudarte.</p>
-
-        <form action="/api/datos" method="POST">
+        <form id="enviar-datos" action="/api/datos" method="POST">
             <label for="nombres-apellidos">Nombres y Apellidos:</label>
             <input type="text" id="nombres-apellidos" name="nombresApellidos" required><br><br>
             <label for="telefono">Teléfono:</label>
@@ -145,12 +143,12 @@
         <p>&copy; Guardería Oreo y Zoe</p>
     </footer>
 
-    <script src="script.js"></script> 
+    <script src="script.js"></script> <!-- Enlace a script JavaScript externo-->
     <script>
         // JavaScript para manejar el envío del formulario//
-        const form = document.querySelector('form');
+        const formularioDatos = document.getElementById('formularioDatos');
         
-        form.addEventListener('submit', function(event) {
+        formularioDatos.addEventListener('submit', async function(event) {
             event.preventDefault(); // Evitar el envío del formulario
         
             // Obtener los valores del formulario
@@ -173,7 +171,32 @@
             console.log('Fecha de Inicio de Servicio:', fechaInicio);
             console.log('Fecha de Fin de Servicio:', fechaFin);
 
-            // Opcional: Puedes enviar estos datos a tu servidor mediante fetch o Axios aquí
+            // Enviar datos al servidor usando fetch (opcional)
+            try {
+                const response = await fetch('/api/datos', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        nombresApellidos,
+                        telefono,
+                        correo,
+                        ciudad,
+                        tipoMascota,
+                        nombrePeludito,
+                        fechaInicio,
+                        fechaFin
+                    }),
+                });
+                const data = await response.json();
+                console.log('Respuesta del servidor:', data);
+                alert('Datos enviados correctamente');
+                // Aquí puedes realizar cualquier acción adicional después de enviar los datos
+            } catch (error) {
+                console.error('Error al enviar los datos:', error);
+                alert('Hubo un error al enviar los datos');
+            }
         });
     </script>
 </body>
