@@ -11,10 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Conexión a MongoDB usando Mongoose
-mongoose.connect('mongodb://localhost:27017/guarderiaDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect('mongodb://localhost:27017/guarderiaDB', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Conectado a la base de datos MongoDB');
   })
@@ -87,13 +84,14 @@ app.post('/api/datos', (req, res) => {
   newData.save()
     .then(() => {
       console.log('Datos guardados en MongoDB');
-      res.send('Datos guardados en MongoDB');
+      res.json ({ message: 'Datos guardados en MongoDB' });
     })
     .catch(err => {
       console.error('Error al guardar datos en MongoDB:', err);
-      res.status(500).send('Error interno al guardar los datos');
+      res.status(500).json({ message: 'Error interno al guardar los datos' });
     });
 });
+
 
 // Endpoint para actualizar un dato por ID (PUT)
 app.put('/api/datos/:id', (req, res) => {

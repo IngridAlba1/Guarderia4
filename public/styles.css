@@ -2,53 +2,295 @@ body {
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
-    background-color: #f5f0ec; /*color */
-    color: rgb(80, 58, 19);
-    text-align: center;
+    background-color: #f5e3f3; /*color */
+    color: rgb(29, 22, 39);
 }
 
 header {
-    background-color: #f1d2b8; /* color  */
+    background-color: #ffacf8; /* color  */
     padding: 1%;
-    text-align: left;
+    text-align: center; /* Centraliza el contenido del encabezado */
 }
-
 
 .logo {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin: 20px;
-
 }
 
-.logo-1  {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-
-}
-.logo-1 img  {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    display: flex;
-    justify-content: center;
-
-}
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between;
-    background-color: #f5cdcd; /* White background */
-    border-bottom: 1px solid #ccc;
+    justify-content: space-evenly;
+    background-color: #3e3ca7; /* Fondo de la barra de navegación */
+    border-bottom: 1px solid #0e0609; /* Borde inferior */
+    width: 100%; /* Asegurarse de que ocupe toda la línea */
 }
 
 nav li {
-    margin-right: 20px;
+    flex: 1;
+    text-align: center;
+    padding: 15px 0; /* Espaciado vertical */
 }
 
+nav a {
+    color: rgb(253, 250, 250);
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px; /* Espaciado interno de los enlaces */
+}
+
+nav a:hover {
+    background-color: #051818; /* Color de fondo al pasar el mouse */
+}
+
+.card {
+    margin-bottom: 1rem; /* Reduce el espacio inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para las tarjetas */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transición suave */
+    width: 100%; /* Asegura que la tarjeta ocupe todo el ancho disponible */
+    max-width: 300px; /* Tamaño máximo de las tarjetas */
+    margin: 0 auto; /* Centra la tarjeta horizontalmente */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Levanta la tarjeta al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+
+.card-body {
+    padding: 1rem; /* Reduce el padding interno */
+    text-align: center; /* Centraliza el contenido de las tarjetas */
+}
+
+.card-body h5 {
+    font-size: 1.25rem; /* Aumenta el tamaño de la fuente del título */
+    margin-bottom: 1rem;
+}
+
+.card-body p {
+    font-size: 1rem; /* Aumenta el tamaño de la fuente del texto */
+    margin-bottom: 1rem;
+}
+
+.card img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho de su contenedor */
+    max-width: 150px; /* Ajusta el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-top: 1rem; /* Espaciado superior */
+    transition: opacity 0.3s, transform 0.3s; /* Transición suave para la animación */
+}
+
+.card img:hover {
+    opacity: 0.8; /* Efecto de opacidad */
+    transform: scale(1.05); /* Efecto de agrandamiento suave */
+}
+
+h1, h2, h5 {
+    font-weight: bold; /* Hace que los títulos estén en negrita */
+}
+
+.seccion {
+    display: none;
+}
+
+#inicio .card, #servicios .card, #acerca-de .card, #dejanos-tus-datos .card {
+    max-width: 100%; /* Asegura que la tarjeta ocupe todo el ancho disponible */
+    margin: 0 auto; /* Centra la tarjeta horizontalmente */
+}
+
+#inicio .inicio-img {
+    width: 100%; /* La imagen ocupa todo el ancho de su contenedor */
+    max-width: 300px; /* Ajusta el tamaño máximo de la imagen en el módulo de inicio */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-top: 20px; /* Espaciado superior */
+    transition: opacity 0.3s, transform 0.3s; /* Transición suave para la animación */
+}
+
+#inicio .inicio-img:hover {
+    opacity: 0.8; /* Efecto de opacidad */
+    transform: scale(1.05); /* Efecto de agrandamiento suave */
+}
+
+#servicios img, #acerca-de img, #dejanos-tus-datos img {
+    max-width: 100%; /* Asegura que las imágenes no sean más anchas que su contenedor */
+    height: auto; /* Mantiene la proporción de las imágenes */
+    margin-top: 20px; /* Espaciado superior */
+    transition: opacity 0.3s, transform 0.3s; /* Transición suave para la animación */
+}
+
+#servicios img:hover, #acerca-de img:hover, #dejanos-tus-datos img:hover {
+    opacity: 0.8; /* Efecto de opacidad */
+    transform: scale(1.05); /* Efecto de agrandamiento suave */
+}
+
+#inicio .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#inicio .inicio-text {
+    text-align: left;
+    padding-left: 20px;
+}
+
+#servicios .card {
+    display: flex;
+    flex-direction: column;
+}
+
+#servicios .card-body {
+    flex: 1;
+}
+
+#servicios .card img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el área asignada sin distorsión */
+    max-width: 150px; /* Tamaño máximo de la imagen */
+    margin-top: 1rem; /* Espaciado superior */
+}
+
+#servicios .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza el contenido */
+}
+
+.icon-container {
+    font-size: 4rem;
+    color: #3e3ca7;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+}
+
+.icon-container:hover {
+    color: #ffacf8;
+}
+
+.about-card {
+    max-width: 350px;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.about-card h5 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-card p {
+    font-size: 1rem;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card h5 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-card i {
+    font-size: 2rem;
+    color: #3e3ca7;
+    margin-right: 0.5rem;
+}
+
+.contact-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+.form-icon {
+    font-size: 1.5rem;
+    color: #3e3ca7;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.form-control {
+    padding-left: 2.5rem;
+    padding-right: 1.5rem;
+}
+
+.input-group-text {
+    background-color: #ffffff;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+}
+
+.input-group-prepend .input-group-text {
+    border-right: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #3e3ca7;
+}
+
+.invalid-feedback {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+.help-text {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.btn-primary {
+    background-color: #3e3ca7;
+    border-color: #3e3ca7;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ffacf8;
+    border-color: #ffacf8;
+}
