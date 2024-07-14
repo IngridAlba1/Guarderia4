@@ -64,6 +64,23 @@ app.get('/api/datos/:id', (req, res) => {
     });
 });
 
+// Endpoint para obtener datos por número de teléfono (GET)
+app.get('/api/datos/telefono/:telefono', (req, res) => {
+  const telefono = req.params.telefono;
+  Datos.find({ telefono })
+    .then(data => {
+      if (data.length === 0) {
+        res.status(404).send('No se encontraron datos con ese número de teléfono');
+      } else {
+        res.json(data);
+      }
+    })
+    .catch(err => {
+      console.error('Error al obtener datos por teléfono:', err);
+      res.status(500).send('Error interno al obtener los datos');
+    });
+});
+
 // Endpoint para crear un nuevo dato (POST)
 app.post('/api/datos', (req, res) => {
   console.log('Datos recibidos del formulario:', req.body);
@@ -84,14 +101,13 @@ app.post('/api/datos', (req, res) => {
   newData.save()
     .then(() => {
       console.log('Datos guardados en MongoDB');
-      res.json ({ message: 'Datos guardados en MongoDB' });
+      res.json(newData);
     })
     .catch(err => {
       console.error('Error al guardar datos en MongoDB:', err);
       res.status(500).json({ message: 'Error interno al guardar los datos' });
     });
 });
-
 
 // Endpoint para actualizar un dato por ID (PUT)
 app.put('/api/datos/:id', (req, res) => {
@@ -144,6 +160,11 @@ app.delete('/api/datos/:id', (req, res) => {
 // Manejo de la ruta raíz del servidor
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Manejo de la ruta para actualizar.html
+app.get('/actualizar', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'actualizar.html'));
 });
 
 // Manejo de errores para rutas no encontradas

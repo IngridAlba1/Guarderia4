@@ -37,15 +37,6 @@ formularioDatos.addEventListener('submit', async function(event) {
     const fechaInicio = document.getElementById('fecha-inicio').value;
     const fechaFin = document.getElementById('fecha-fin').value;
 
-    // Verificar que la fecha de fin sea mayor o igual que la fecha de inicio
-    if (new Date(fechaFin) < new Date(fechaInicio)) {
-        alert('La fecha de fin debe ser igual o posterior a la fecha de inicio.');
-        document.getElementById('fecha-fin').classList.add('is-invalid');
-        return;
-    } else {
-        document.getElementById('fecha-fin').classList.remove('is-invalid');
-    }
-
     // Mostrar los valores en la consola del navegador
     console.log('Nombres y Apellidos:', nombresApellidos);
     console.log('Teléfono:', telefono);
@@ -74,11 +65,16 @@ formularioDatos.addEventListener('submit', async function(event) {
                 fechaFin
             }),
         });
-        const data = await response.json();
-        console.log('Respuesta del servidor:', data);
-        alert('Datos enviados correctamente');
-        formularioDatos.reset();
-        formularioDatos.classList.remove('was-validated');
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Respuesta del servidor:', data);
+            alert('Datos enviados correctamente');
+            formularioDatos.reset();
+            formularioDatos.classList.remove('was-validated');
+            window.location.href = 'actualizar.html'; // Redirigir a la página de actualización
+        } else {
+            throw new Error('Error en la respuesta del servidor');
+        }
     } catch (error) {
         console.error('Error al enviar los datos:', error);
         alert('Hubo un error al enviar los datos');

@@ -3,200 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guarderia Oreo y Zoe</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Enlace a hoja de estilos externa-->
-    <style>
-        /* Estilos adicionales para el formulario */
-        form {
-            text-align: left;
-        }
-    </style>
+    <title>Guarderia Oreo y Zoe - Tabla de Datos</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="tabla.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <!-- Encabezado con Logo -->
     <header>
-        <img src="images/logo.jpeg" alt="logo de la guarderia" class="logo">
+        <div class="container d-flex align-items-center py-3">
+            <img src="images/logo.jpeg" alt="logo de la guarderia" class="logo">
+            <h1 class="ml-3">Consulta de Datos Guardería Oreo y Zoe</h1>
+        </div>
     </header>
 
     <!-- Barra de Navegación -->
     <nav>
         <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#acerca-de">Acerca de nosotros</a></li>
-            <li><a href="#dejanos-tus-datos">Déjanos tus Datos</a></li>
+            <li><a href="#gestion-datos" onclick="mostrarSeccion('gestion-datos')">Gestión de Datos</a></li>
+            <li><a href="#tabla-datos" onclick="mostrarSeccion('tabla-datos'); cargarDatosTabla();">Revisar Tabla</a></li>
+            <li><a href="index.html">Volver</a></li>
         </ul>
     </nav>
 
-    <!-- Módulo de Inicio -->
-    <section id="inicio">
-        <h1>Bienvenidos a Guardería Oreo y Zoe desde la Pagina Actualizar</h1>
-        <p>¡Donde tus mascotas son nuestra prioridad!</p>
-
-        <p>En nombre de Oreo y Zoe, entendemos que tus mascotas son más que solo animales; son miembros queridos de tu familia. Nuestro compromiso es proporcionarles un ambiente seguro, divertido y amoroso mientras estás fuera.</p>
-
-        <p>Nuestro equipo de cuidadores dedicados y amantes de los animales está aquí para asegurarse de que tus mascotas reciban la atención y el cariño que se merecen. Desde paseos diarios hasta actividades de enriquecimiento y mucho más, nos esforzamos por hacer que cada día sea especial para tus amigos peludos.</p>
-
-        <p>Explora nuestros servicios y conoce más sobre nosotros. Estamos emocionados de conocerte a ti y a tus adorables compañeros.</p>
-
-        <p>¡Bienvenidos a nuestro hogar lejos de casa!</p>
-
-        <div class="logo logo-1">
-            <img src="images/imagen1.jpeg" alt="imagen1">
+    <!-- Módulo Tabla de Datos -->
+    <section id="tabla-datos" class="container-fluid my-5 seccion" style="display:none;">
+        <div class="card mx-auto">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-5">Tabla de Datos</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Teléfono</th>
+                                <th>Correo Electrónico</th>
+                                <th>Ciudad</th>
+                                <th>Tipo de Mascota</th>
+                                <th>Nombre del Peludito</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="datos-tbody">
+                            <!-- Aquí se llenarán los datos con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Módulo de Servicios -->
-    <section id="servicios">
-        <h2>Nuestros Servicios</h2>
-        <ul>
-            <li>
-                <h4>Cuidado de Tu Mascota</h4>
-                <p>¡Bienvenido al espacio dedicado al cuidado de tu mascota!</p>
-
-                <p>Aquí encontrarás todo lo que necesitas para mantener a tu compañero peludo feliz y saludable. Desde consejos prácticos hasta información útil sobre alimentación, salud y bienestar. Nos preocupamos tanto como tú por el bienestar de tu mascota. ¡Explora, aprende y cuida a tu amigo peludo como se merece!</p>
-
-                <p>Recuerda, cada gesto de amor y cuidado marca la diferencia en la vida de tu mascota. Juntos, hacemos del mundo un lugar mejor para ellos.</p>
-
-                <div class="logo logo-1">
-                    <img src="images/imagen2.jpeg" alt="imagen2">
-                </div>
-            </li>
-            <li>
-                <h4>Guardería</h4>
-                <p>¡Descubre nuestra guardería para mascotas, donde el cuidado es para siempre!</p>
-
-                <p>En nuestro espacio, tu mascota no solo encuentra un lugar seguro y cómodo, sino también un segundo hogar. Con atención personalizada, actividades divertidas y un equipo dedicado, garantizamos que tu amigo peludo se sienta amado y protegido en todo momento. Confía en nosotros para brindarle el cuidado que se merece, ¡porque en nuestra guardería, el amor y la seguridad son para siempre!</p>
-
-                <div class="logo logo-1">
-                    <img src="images/imagen3.jpeg" alt="imagen3">
-                </div>
-            </li>
-            <li>
-                <h4>Paseo a Domicilio</h4>
-                <p>¡Bienvenido al servicio de paseo de mascotas a domicilio!</p>
-
-                <p>En nuestra empresa, entendemos lo importante que es el bienestar de tu mascota. Por eso, ofrecemos un servicio de paseo a domicilio diseñado para brindarle la atención y el ejercicio que necesita, directamente en la puerta de tu hogar. Nuestro equipo está comprometido con el cuidado y la seguridad de tu amigo peludo, asegurando paseos divertidos y estimulantes en cada visita.</p>
-
-                <p>Confía en nosotros para proporcionarle a tu mascota la experiencia que se merece, porque en cada paseo, cuidamos su felicidad y salud como si fuera parte de nuestra familia.</p>
-
-                <div class="logo logo-1">
-                    <img src="images/imagen4.jpeg" alt="imagen4">
-                </div>
-            </li>
-        </ul>
-    </section>
-
-    <!-- Módulo Acerca de Nosotros -->
-    <section id="acerca-de">
-        <h2>Acerca de Nosotros</h2>
-        <p>Bienvenidos a Guardería Oreo y Zoe!</p>
-
-        <p>En Guardería Oreo y Zoe, nos dedicamos a ofrecer servicios de alta calidad para el cuidado y bienestar de tus mascotas. Desde el año 2021, hemos sido líderes en la Ciudad de Bogotá en proporcionar soluciones confiables y personalizadas para las necesidades individuales de cada mascota.</p>
-
-        <p>Ofrecemos una amplia gama de servicios que incluyen guardería, paseos y cuidado de tu mascota. Nos enorgullece contar con un equipo de profesionales capacitados y amantes de los animales, comprometidos con garantizar el confort y seguridad de tus compañeros peludos.</p>
-
-        <p>En Guardería Oreo y Zoe, valoramos la confianza que nuestros clientes depositan en nosotros. Nuestra misión es crear relaciones duraderas basadas en el respeto, cuidado y atención excepcional hacia todas las mascotas que atendemos.</p>
-
-        <p>Contáctanos hoy mismo para conocer más sobre nuestros servicios y descubrir cómo podemos ayudarte a cuidar de tu mascota. Puedes encontrarnos en Calle 49a #10-20, llamarnos al 3058127726 o escribirnos a guarderiaoreoyzoe@gmail.com. ¡Estamos aquí para ti y para tus mascotas, siempre!</p>
-
-        <p>¡Gracias por considerar Guardería Oreo y Zoe como tu aliado en el cuidado de tus seres queridos de cuatro patas!</p>
-
-        <div class="logo logo-1">
-            <img src="images/imagen5.jpeg" alt="imagen5">
+    <!-- Módulo de Gestión -->
+    <section id="gestion-datos" class="container my-5 seccion">
+        <div class="card mx-auto">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-5">Gestión de Datos</h2>
+                <form id="gestionForm" class="needs-validation" novalidate>
+                    <input type="hidden" id="registro-id" name="registroId"> <!-- Campo oculto para el ID del registro -->
+                    <div class="form-group">
+                        <label for="telefono-gestion">Número de Teléfono:</label>
+                        <input type="text" class="form-control" id="telefono-gestion" name="telefono" pattern="\d{10}" required>
+                        <div class="invalid-feedback">Ingrese un número de teléfono válido (10 dígitos).</div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-block" onclick="buscarPorTelefono()">Buscar</button>
+                    
+                    <div id="datosAdicionales" style="display: none;">
+                        <div class="form-group">
+                            <label for="nombres-apellidos-gestion">Nombres y Apellidos:</label>
+                            <input type="text" class="form-control" id="nombres-apellidos-gestion" name="nombresApellidos" pattern="[A-Za-z\s]+">
+                        </div>
+                        <div class="form-group">
+                            <label for="correo-gestion">Correo Electrónico:</label>
+                            <input type="email" class="form-control" id="correo-gestion" name="correo">
+                        </div>
+                        <div class="form-group">
+                            <label for="ciudad-gestion">Ciudad:</label>
+                            <input type="text" class="form-control" id="ciudad-gestion" name="ciudad" pattern="[A-Za-z\s]+">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo-mascota-gestion">Tipo de Mascota:</label>
+                            <select class="form-control" id="tipo-mascota-gestion" name="tipoMascota">
+                                <option value="">Seleccione una opción</option>
+                                <option value="perro">Perro</option>
+                                <option value="gato">Gato</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre-peludito-gestion">Nombre del Peludito:</label>
+                            <input type="text" class="form-control" id="nombre-peludito-gestion" name="nombrePeludito">
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-inicio-gestion">Fecha de Inicio de Servicio:</label>
+                            <input type="date" class="form-control" id="fecha-inicio-gestion" name="fechaInicio">
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha-fin-gestion">Fecha de Fin de Servicio:</label>
+                            <input type="date" class="form-control" id="fecha-fin-gestion" name="fechaFin">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </section>
-
-    <!-- Módulo Déjanos tus datos -->
-    <section id="dejanos-tus-datos">
-        <h1>Déjanos tus Datos</h1>
-        <p>Déjanos conocerte mejor!</p>
-
-        <form id="enviar-datos" action="/api/datos" method="POST">
-            <label for="nombres-apellidos">Nombres y Apellidos:</label>
-            <input type="text" id="nombres-apellidos" name="nombresApellidos" required><br><br>
-            <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="telefono" required><br><br>
-            <label for="correo">Correo electrónico:</label>
-            <input type="text" id="correo" name="correo" required><br><br>
-            <label for="ciudad">Ciudad:</label>
-            <input type="text" id="ciudad" name="ciudad" required><br><br>
-            <label for="tipo-mascota">Tipo de mascota:</label>
-            <select id="tipo-mascota" name="tipoMascota" required>
-                <option value="">Seleccione una opción</option>
-                <option value="perro">Perro</option>
-                <option value="gato">Gato</option>
-                <option value="otro">Otro</option>
-            </select><br><br>
-            <label for="nombre-peludito">Nombre de Tu peludito:</label>
-            <input type="text" id="nombre-peludito" name="nombrePeludito" required><br><br>
-            <label for="fecha-inicio">Fecha de Inicio de Servicio:</label>
-            <input type="date" id="fecha-inicio" name="fechaInicio" required><br><br>
-            <label for="fecha-fin">Fecha de Fin de Servicio:</label>
-            <input type="date" id="fecha-fin" name="fechaFin" required><br><br>
-            <input type="submit" value="Enviar">
-        </form>
     </section>
 
     <!-- Pie de página -->
-    <footer>
+    <footer class="text-center py-4">
         <p>&copy; Guardería Oreo y Zoe</p>
     </footer>
 
-    <script src="script.js"></script> <!-- Enlace a script JavaScript externo-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="tabla.js"></script>
+    <script src="gestion.js"></script>
     <script>
-        // JavaScript para manejar el envío del formulario//
-        const formularioDatos = document.getElementById('formularioDatos');
-        
-        formularioDatos.addEventListener('submit', async function(event) {
-            event.preventDefault(); // Evitar el envío del formulario
-        
-            // Obtener los valores del formulario
-            const nombresApellidos = document.getElementById('nombres-apellidos').value;
-            const telefono = document.getElementById('telefono').value;
-            const correo = document.getElementById('correo').value;
-            const ciudad = document.getElementById('ciudad').value;
-            const tipoMascota = document.getElementById('tipo-mascota').value;
-            const nombrePeludito = document.getElementById('nombre-peludito').value;
-            const fechaInicio = document.getElementById('fecha-inicio').value;
-            const fechaFin = document.getElementById('fecha-fin').value;
-        
-            // Mostrar los valores en la consola del navegador
-            console.log('Nombres y Apellidos:', nombresApellidos);
-            console.log('Teléfono:', telefono);
-            console.log('Correo electrónico:', correo);
-            console.log('Ciudad:', ciudad);
-            console.log('Tipo de mascota:', tipoMascota);
-            console.log('Nombre de Tu peludito:', nombrePeludito);
-            console.log('Fecha de Inicio de Servicio:', fechaInicio);
-            console.log('Fecha de Fin de Servicio:', fechaFin);
+        function mostrarSeccion(seccionId) {
+            const secciones = document.querySelectorAll('.seccion');
+            secciones.forEach(seccion => {
+                seccion.style.display = 'none';
+            });
+            document.getElementById(seccionId).style.display = 'block';
+        }
 
-            // Enviar datos al servidor usando fetch (opcional)
-            try {
-                const response = await fetch('/api/datos', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        nombresApellidos,
-                        telefono,
-                        correo,
-                        ciudad,
-                        tipoMascota,
-                        nombrePeludito,
-                        fechaInicio,
-                        fechaFin
-                    }),
-                });
-                const data = await response.json();
-                console.log('Respuesta del servidor:', data);
-                alert('Datos enviados correctamente');
-                // Aquí puedes realizar cualquier acción adicional después de enviar los datos
-            } catch (error) {
-                console.error('Error al enviar los datos:', error);
-                alert('Hubo un error al enviar los datos');
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarSeccion('gestion-datos');
         });
     </script>
 </body>
