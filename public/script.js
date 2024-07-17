@@ -1,4 +1,3 @@
-// JavaScript para manejar el envío del formulario y validación de Bootstrap
 (() => {
     'use strict';
 
@@ -21,6 +20,27 @@ const formularioDatos = document.getElementById('formularioDatos');
 formularioDatos.addEventListener('submit', async function(event) {
     event.preventDefault(); // Evitar el envío del formulario
 
+    const fechaInicio = new Date(document.getElementById('fecha-inicio').value + 'T00:00:00');
+    const fechaFin = new Date(document.getElementById('fecha-fin').value + 'T00:00:00');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set the time to midnight to compare only the date part
+
+    if (fechaInicio < today) {
+        document.getElementById('fecha-inicio').setCustomValidity('La fecha de inicio no puede ser inferior al día de hoy.');
+        document.getElementById('fecha-inicio').reportValidity();
+        return;
+    } else {
+        document.getElementById('fecha-inicio').setCustomValidity('');
+    }
+
+    if (fechaFin < fechaInicio) {
+        document.getElementById('fecha-fin').setCustomValidity('La fecha de fin debe ser igual o posterior a la fecha de inicio.');
+        document.getElementById('fecha-fin').reportValidity();
+        return;
+    } else {
+        document.getElementById('fecha-fin').setCustomValidity('');
+    }
+
     if (formularioDatos.checkValidity() === false) {
         event.stopPropagation();
         formularioDatos.classList.add('was-validated');
@@ -34,8 +54,8 @@ formularioDatos.addEventListener('submit', async function(event) {
     const ciudad = document.getElementById('ciudad').value;
     const tipoMascota = document.getElementById('tipo-mascota').value;
     const nombrePeludito = document.getElementById('nombre-peludito').value;
-    const fechaInicio = document.getElementById('fecha-inicio').value;
-    const fechaFin = document.getElementById('fecha-fin').value;
+    const fechaInicioStr = fechaInicio.toISOString();
+    const fechaFinStr = fechaFin.toISOString();
 
     // Mostrar los valores en la consola del navegador
     console.log('Nombres y Apellidos:', nombresApellidos);
@@ -44,8 +64,8 @@ formularioDatos.addEventListener('submit', async function(event) {
     console.log('Ciudad:', ciudad);
     console.log('Tipo de mascota:', tipoMascota);
     console.log('Nombre de Tu peludito:', nombrePeludito);
-    console.log('Fecha de Inicio de Servicio:', fechaInicio);
-    console.log('Fecha de Fin de Servicio:', fechaFin);
+    console.log('Fecha de Inicio de Servicio:', fechaInicioStr);
+    console.log('Fecha de Fin de Servicio:', fechaFinStr);
 
     // Enviar datos al servidor usando fetch
     try {
@@ -61,8 +81,8 @@ formularioDatos.addEventListener('submit', async function(event) {
                 ciudad,
                 tipoMascota,
                 nombrePeludito,
-                fechaInicio,
-                fechaFin
+                fechaInicio: fechaInicioStr,
+                fechaFin: fechaFinStr
             }),
         });
         if (response.ok) {

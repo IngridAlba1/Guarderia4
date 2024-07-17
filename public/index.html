@@ -227,6 +227,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             mostrarSeccion('inicio');
         });
+        document.getElementById('formularioDatos').addEventListener('submit', function(event) {
+            const fechaInicio = new Date(document.getElementById('fecha-inicio').value);
+            const fechaFin = new Date(document.getElementById('fecha-fin').value);
+
+            if (fechaFin < fechaInicio) {
+                event.preventDefault();
+                document.getElementById('fecha-fin').setCustomValidity('La fecha de fin debe ser igual o posterior a la fecha de inicio.');
+                document.getElementById('fecha-fin').reportValidity();
+            } else {
+                document.getElementById('fecha-fin').setCustomValidity('');
+            }
+        });
     </script>
 </body>
 </html>
+   

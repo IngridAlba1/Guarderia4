@@ -24,6 +24,17 @@ function buscarPorTelefono() {
             datosTbody.innerHTML = '';
             if (datos.length > 0) {
                 datos.forEach(dato => {
+                    const fechaInicio = new Date(dato.fechaInicio);
+                    const fechaFin = new Date(dato.fechaFin);
+
+                    // Corregir la fecha sumando la diferencia horaria manualmente para mostrar la fecha correcta en Colombia
+                    const offset = fechaInicio.getTimezoneOffset() * 60000;
+                    const fechaInicioCorregida = new Date(fechaInicio.getTime() + offset);
+                    const fechaFinCorregida = new Date(fechaFin.getTime() + offset);
+
+                    const fechaInicioStr = fechaInicioCorregida.toISOString().split('T')[0];
+                    const fechaFinStr = fechaFinCorregida.toISOString().split('T')[0];
+
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${dato._id}</td>
@@ -33,8 +44,8 @@ function buscarPorTelefono() {
                         <td>${dato.ciudad}</td>
                         <td>${dato.tipoMascota}</td>
                         <td>${dato.nombrePeludito}</td>
-                        <td>${new Date(dato.fechaInicio).toLocaleDateString()}</td>
-                        <td>${new Date(dato.fechaFin).toLocaleDateString()}</td>
+                        <td>${fechaInicioStr}</td>
+                        <td>${fechaFinStr}</td>
                         <td>
                             <button class="btn btn-primary btn-sm" onclick="editarRegistro('${dato._id}')">Actualizar</button>
                             <button class="btn btn-danger btn-sm" onclick="eliminarRegistro('${dato._id}')">Eliminar</button>
@@ -64,8 +75,18 @@ function editarRegistro(id) {
             document.getElementById('ciudad-gestion').value = dato.ciudad;
             document.getElementById('tipo-mascota-gestion').value = dato.tipoMascota;
             document.getElementById('nombre-peludito-gestion').value = dato.nombrePeludito;
-            document.getElementById('fecha-inicio-gestion').value = dato.fechaInicio.split('T')[0];
-            document.getElementById('fecha-fin-gestion').value = dato.fechaFin.split('T')[0];
+
+            const fechaInicio = new Date(dato.fechaInicio);
+            const fechaFin = new Date(dato.fechaFin);
+
+            // Corregir la fecha sumando la diferencia horaria manualmente para mostrar la fecha correcta en Colombia
+            const offset = fechaInicio.getTimezoneOffset() * 60000;
+            const fechaInicioCorregida = new Date(fechaInicio.getTime() + offset);
+            const fechaFinCorregida = new Date(fechaFin.getTime() + offset);
+
+            document.getElementById('fecha-inicio-gestion').value = fechaInicioCorregida.toISOString().split('T')[0];
+            document.getElementById('fecha-fin-gestion').value = fechaFinCorregida.toISOString().split('T')[0];
+            
             document.getElementById('datosAdicionales').style.display = 'block';
             mostrarSeccion('gestion-datos');
         })
