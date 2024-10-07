@@ -11,20 +11,20 @@
 <body>
     <!-- Encabezado con Logo -->
     <header>
-        <div class="container d-flex align-items-center py-3">
-            <img src="images/logo.jpeg" alt="logo de la guarderia" class="logo">
-            <h1 class="ml-3">Guardería Oreo y Zoe</h1>
+        <div class="container d-flex flex-column flex-md-row align-items-center py-3">
+            <img src="images/logo.jpeg" alt="logo de la guarderia" class="logo img-fluid" style="max-width: 150px;">
+            <h1 class="ml-md-3 text-center text-md-left">Guardería Oreo y Zoe</h1>
         </div>
     </header>
 
     <!-- Barra de Navegación -->
     <nav>
-        <ul>
-            <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
-            <li><a href="#" onclick="mostrarSeccion('servicios')">Servicios</a></li>
-            <li><a href="#" onclick="mostrarSeccion('acerca-de')">Acerca de nosotros</a></li>
-            <li><a href="#" onclick="mostrarSeccion('dejanos-tus-datos')">Déjanos tus Datos</a></li>
-            <li><a href="actualizar.html">Revisar</a></li>
+        <ul class="nav nav-pills justify-content-center justify-content-md-start">
+            <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('servicios')">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('acerca-de')">Acerca de nosotros</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="mostrarSeccion('dejanos-tus-datos')">Déjanos tus Datos</a></li>
+            <li class="nav-item"><a class="nav-link" href="actualizar.html">Revisar</a></li>
         </ul>
     </nav>
 
@@ -48,32 +48,32 @@
             <div class="card-body">
                 <h2 class="card-title text-center mb-5">Nuestros Servicios</h2>
                 <div class="row">
-                    <div class="col-md-6 mb-4">
+                    <div class="col-12 col-md-6 mb-4">
                         <div class="card mx-auto">
                             <div class="card-body">
                                 <h5 class="card-title">Cuidado de Tu Mascota</h5>
                                 <p class="card-text">Aquí encontrarás todo lo que necesitas para mantener a tu compañero peludo feliz y saludable. Desde consejos prácticos hasta información útil sobre alimentación, salud y bienestar.</p>
-                                <img src="images/imagen2.jpeg" class="card-img-bottom" alt="imagen2">
+                                <img src="images/imagen2.jpeg" class="card-img-bottom img-fluid" alt="imagen2">
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-12 col-md-6 mb-4">
                         <div class="card mx-auto">
                             <div class="card-body">
                                 <h5 class="card-title">Guardería</h5>
                                 <p class="card-text">En nuestro espacio, tu mascota no solo encuentra un lugar seguro y cómodo, sino también un segundo hogar. Con atención personalizada, actividades divertidas y un equipo dedicado.</p>
-                                <img src="images/imagen3.jpeg" class="card-img-bottom" alt="imagen3">
+                                <img src="images/imagen3.jpeg" class="card-img-bottom img-fluid" alt="imagen3">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12 mb-4">
+                    <div class="col-12 mb-4">
                         <div class="card mx-auto">
                             <div class="card-body">
                                 <h5 class="card-title">Paseo a Domicilio</h5>
                                 <p class="card-text">Ofrecemos un servicio de paseo a domicilio diseñado para brindarle la atención y el ejercicio que necesita, directamente en la puerta de tu hogar.</p>
-                                <img src="images/imagen4.jpeg" class="card-img-bottom" alt="imagen4">
+                                <img src="images/imagen4.jpeg" class="card-img-bottom img-fluid" alt="imagen4">
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
             <div class="card-body">
                 <h2 class="card-title text-center mb-5">Acerca de Nosotros</h2>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="about-card">
                             <div class="icon-container">
                                 <i class="fas fa-paw"></i>
@@ -97,7 +97,7 @@
                             <p>En Guardería Oreo y Zoe, nos dedicamos a ofrecer servicios de alta calidad para el cuidado y bienestar de tus mascotas. Desde el año 2021, hemos sido líderes en la Ciudad de Bogotá en proporcionar soluciones confiables y personalizadas para las necesidades individuales de cada mascota.</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="about-card">
                             <div class="icon-container">
                                 <i class="fas fa-heart"></i>
@@ -106,7 +106,7 @@
                             <p>Ofrecemos una amplia gama de servicios que incluyen guardería, paseos y cuidado de tu mascota. Nos enorgullece contar con un equipo de profesionales capacitados y amantes de los animales, comprometidos con garantizar el confort y seguridad de tus compañeros peludos.</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="about-card">
                             <div class="icon-container">
                                 <i class="fas fa-users"></i>
@@ -117,7 +117,7 @@
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <div class="contact-card">
                             <h5 class="text-center">Contáctanos</h5>
                             <p class="text-center"><i class="fas fa-map-marker-alt"></i> Calle 49a #10-20, Bogotá</p>
@@ -242,4 +242,3 @@
     </script>
 </body>
 </html>
-   
